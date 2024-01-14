@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
+import './../globals.css'
+import Navigation from '../components/Navigation'
+import Breadcrumbs from '../components/Breadcrumbs'
+import Footer from '../components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,18 +12,15 @@ export const metadata: Metadata = {
   description: 'GEDA-MAJOR',
 }
 
-export default function RootLayout({
+export default function CommonLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html data-theme="nord" lang="en">
-      <body className={inter.className}>
-      <Navigation />
+      <div>
+      <Breadcrumbs/>
       {children}
-      <Footer />
-        </body>
-    </html>
+      </div>
   )
 }
